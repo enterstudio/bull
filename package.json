@@ -24,7 +24,8 @@
     "ioredis": "^2.5.0",
     "lodash": "^4.17.4",
     "semver": "^5.3.0",
-    "uuid": "^3.0.1"
+    "uuid": "^3.0.1",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
@@ -35,6 +36,9 @@
   },
   "scripts": {
     "test": "gulp && mocha test/test_* --reporter spec --timeout 5000",
-    "postpublish": "git push && git push --tags"
-  }
+    "postpublish": "git push && git push --tags",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
